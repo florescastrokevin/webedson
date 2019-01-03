@@ -1,0 +1,2 @@
+<link rel="stylesheet" type="text/css" href="<?php echo _inc_mod_admin_. basename($_SERVER['PHP_SELF'],'.php')?>/css/css.css" />
+<script type="text/javascript" src="<?php echo _inc_mod_admin_. basename($_SERVER['PHP_SELF'],'.php')?>/js/js.js"></script>

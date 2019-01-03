@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /webedson/adm/
+
+#Solo para que en el admin se apliquen las reglas
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+
+RewriteRule ^(.*)/(.*)/(.*)/(.*)$  index.php?section=$1&action=$2&param3=$3&param4=$4 [L]
+RewriteRule ^(.*)/(.*)/(.*)$  index.php?section=$1&action=$2&id=$3 [L]
+RewriteRule ^(.*)/(.*)$  index.php?section=$1&action=$2 [L]
+RewriteRule ^(.*)$ index.php?section=$1 [NC,L]

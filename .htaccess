@@ -1,0 +1,33 @@
+RewriteEngine On
+RewriteBase /webedson/
+
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+#Solo para que en el index se apliquen las reglas
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+#RewriteRule ^blog(.*)$ blog.php?nl=$1 [L]
+RewriteRule ^seccion/([a-z]*)$  index.php?modulo=$1 [L]
+RewriteRule ^seccion/([a-z]*)/([a-z-]*)$  index.php?modulo=$1&accion=$2 [L]
+RewriteRule ^seccion/([a-z]*)/([a-z-]*)/([0-9]+)$  index.php?modulo=$1&accion=$2&code=$3 [L] 
+RewriteRule ^nosotros$ index.php?modulo=nosotros [L]
+RewriteRule ^como-comprar$ index.php?modulo=como-comprar [L] 
+RewriteRule ^formas-pago$ index.php?modulo=formas-pago [L]
+RewriteRule ^delivery$ index.php?modulo=delivery [L]
+RewriteRule ^libro-de-reclamaciones$ index.php?modulo=libro-de-reclamaciones [L]
+RewriteRule ^devoluciones$ index.php?modulo=devoluciones [L]
+RewriteRule ^politica-y-privacidad$ index.php?modulo=politica-y-privacidad [L]
+RewriteRule ^terminos-y-condiciones$ index.php?modulo=terminos-y-condiciones [L]
+RewriteRule ^blog$ index.php?modulo=blog [L]
+RewriteRule ^blog/([a-z]*)$ index.php?modulo=blog&url=$1 [L]
+RewriteRule ^c/(.*)/(.*)$ index.php?modulo=categoria&url=$1&suburl=$2 [L]
+RewriteRule ^c/(.*)$ index.php?modulo=categoria&url=$1 [L]
+RewriteRule ^f/(.*)/(.*)$ index.php?modulo=filtro&url=$1&suburl=$2 [L]
+RewriteRule ^f/(.*)$ index.php?modulo=filtro&url=$1 [L]
+RewriteRule ^p/(.*)$ index.php?modulo=producto&url=$1 [L]
+RewriteRule ^cf/(.*)$ index.php?modulo=categoriafiltro&url=$1 [L]
+RewriteRule ^b/(.*)$ index.php?modulo=busqueda&url=$1 [L]
+RewriteRule ^(.*)$ index.php?n=$1 [NC,L]
